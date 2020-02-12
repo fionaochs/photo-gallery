@@ -8,18 +8,28 @@ import ImageList from './ImageList.js';
 
 class App extends Component {
     state = {
-      selected: null
+      selected: null,
+      horns: null
     };
     handleChange = e => {
       this.setState({selected: e.target.value});
     }
+    handleHorns = e => {
+      this.setState({horns: Number(e.target.value)});
+    }
     render () {
 
       const { selected } = this.state;
+      // const { horns } = this.horns;
+
       const creaturesNodes = images
       .filter(Creature => {
         if (!selected) return true;
         return Creature.keyword === selected;
+      })
+      .filter(Creature => {
+        if (!this.state.horns) return true;
+        return Creature.horns === this.state.horns;
       })
       .map(hornedCreature => 
         <Creature
@@ -27,6 +37,7 @@ class App extends Component {
         />)
         //create <li> for each selected creature and feed that into ImageList
         //through creaturesNodes
+        
         
         return (
           <div className="App">
@@ -46,6 +57,16 @@ class App extends Component {
                 <option value="chameleon">Chameleon</option>
                 <option value="lizard">Lizard</option>
                 <option value="dragon">Dragon</option>
+            </select>
+            <select className="horned-types" onChange={this.handleHorns}>
+                <option value="" defaultValue>
+                    Number of Horns
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="100">100</option>
+
             </select>
       <ImageList creaturesNodes={creaturesNodes}></ImageList>
       </div>
