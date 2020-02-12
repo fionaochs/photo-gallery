@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ImageItem.js correctly 1`] = `
+<li>
+  <div
+    id="info-container"
+  >
+    <h2>
+      UniWhal
+    </h2>
+    <p
+      className="creature-type"
+    >
+      A unicorn and a narwhal nuzzling their horns
+    </p>
+  </div>
+  <div
+    className="image-container"
+  >
+    <img
+      alt="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg"
+      src="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg"
+    />
+  </div>
+  <p
+    className="horns"
+  >
+    1
+  </p>
+</li>
+`;
