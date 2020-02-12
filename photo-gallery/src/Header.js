@@ -5,7 +5,7 @@ export default class Header extends Component {
       return <header>
           <div>
               <h1>
-                  The World of Horned Creatures
+                  The Mythical World of Horned Creatures
               </h1>
           </div>
 

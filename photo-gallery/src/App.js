@@ -25,7 +25,8 @@ class App extends Component {
         <Creature
         creature={hornedCreature} 
         />)
-        
+        //create <li> for each selected creature and feed that into ImageList
+        //through creaturesNodes
         
         return (
           <div className="App">

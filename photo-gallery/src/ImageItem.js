@@ -19,3 +19,10 @@ export default class Creature extends Component {
         </li>
     }
 }
+//render 
+//for every creature selected
+//<li>
+//   <div id=info> <h2/> <p/> </div>
+//   <div class img> <img/> </div>
+// </li>
+//will be inserted into <ul>
