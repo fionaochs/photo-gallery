@@ -4,12 +4,14 @@ import './App.css';
 import Creature from './ImageItem.js';
 import Header from './Header.js';
 import ImageList from './ImageList.js';
+// import request from 'superagent';
 
 
-class App extends Component {
+export default class App extends Component {
     state = {
       selected: null,
-      horns: null
+      horns: null,
+      keyword: null
     };
     handleChange = e => {
       this.setState({selected: e.target.value});
@@ -17,10 +19,14 @@ class App extends Component {
     handleHorns = e => {
       this.setState({horns: Number(e.target.value)});
     }
+    handleKeyword = e => {
+      this.setState({keyword: e.target.value});
+    }
+    
+
     render () {
 
       const { selected } = this.state;
-      // const { horns } = this.horns;
 
       const creaturesNodes = images
       .filter(Creature => {
@@ -30,6 +36,10 @@ class App extends Component {
       .filter(Creature => {
         if (!this.state.horns) return true;
         return Creature.horns === this.state.horns;
+      })
+      .filter(Creature => {
+        if (!this.state.keyword) return true;
+        return Creature.keyword.includes(this.state.keyword);
       })
       .map(hornedCreature => 
         <Creature
@@ -68,10 +78,9 @@ class App extends Component {
                 <option value="100">100</option>
 
             </select>
-      <ImageList creaturesNodes={creaturesNodes}></ImageList>
-      </div>
+            <input type="text" className="form" onChange={this.handleKeyword}></input>
+          <ImageList creaturesNodes={creaturesNodes}></ImageList>
+          </div>
       );
     }      
 }
-export default App;
-
